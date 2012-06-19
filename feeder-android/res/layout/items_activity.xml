@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ # $Id: $
+ #
+ # Copyright (C) 2012 Stoyan Rachev (stoyanr@gmail.com)
+ #
+ # This program is free software; you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License as published by the
+ # Free Software Foundation; either version 2, or (at your option) any
+ # later version.
+ #
+ # This program is distributed in the hope that it will be useful, but
+ # WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ # General Public License for more details.-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <view
+        android:id="@+id/channelHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        class="com.stoyanr.feeder.view.ChannelHeader" />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:columnWidth="150dip"
+        android:gravity="center"
+        android:horizontalSpacing="8dip"
+        android:numColumns="auto_fit"
+        android:padding="4dip"
+        android:rowHeight="130dip"
+        android:stretchMode="none"
+        android:verticalSpacing="8dip" />
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="" />
+
+</LinearLayout>

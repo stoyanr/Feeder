@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="com/example/feeder/provider/dao/" kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="libs/android-rome-feed-reader-1.0.0-r2.jar"/>
+	<classpathentry kind="lib" path="libs/jdom-1.1.3.jar"/>
+	<classpathentry kind="lib" path="libs/ormlite-android-4.41.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/bin/ormlite/lib/ormlite-android-4.41-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/ormlite-core-4.41.jar" sourcepath="C:/bin/ormlite/lib/ormlite-core-4.41-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/bin/ormlite/lib/ormlite-core-4.41-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/android-support-v4.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

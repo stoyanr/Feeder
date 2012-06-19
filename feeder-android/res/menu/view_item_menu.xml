@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ # $Id: $
+ #
+ # Copyright (C) 2012 Stoyan Rachev (stoyanr@gmail.com)
+ #
+ # This program is free software; you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License as published by the
+ # Free Software Foundation; either version 2, or (at your option) any
+ # later version.
+ #
+ # This program is distributed in the hope that it will be useful, but
+ # WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ # General Public License for more details.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/newer_item"
+        android:icon="@android:drawable/ic_media_previous"
+        android:title="@string/newer_item"/>
+    <item
+        android:id="@+id/older_item"
+        android:icon="@android:drawable/ic_media_next"
+        android:title="@string/older_item"/>
+
+</menu>

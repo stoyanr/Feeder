@@ -1,0 +1,11 @@
+*.class
+*.apk
+*.ap_
+*.dex
+*.cache
+/*/.settings
+/*/bin
+/*/gen
+/*/*/bin
+/*/*/gen
+
