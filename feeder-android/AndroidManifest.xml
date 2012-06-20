@@ -12,66 +12,85 @@
  # This program is distributed in the hope that it will be useful, but
  # WITHOUT ANY WARRANTY; without even the implied warranty of
  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- # General Public License for more details.
- -->
+ # General Public License for more details.-->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stoyanr.feeder" android:versionCode="1"
-    android:versionName="1.0">
-    
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
-    
-    <application android:icon="@drawable/icon" android:label="Feeder">
-        
-        <provider android:name=".content.MainContentProvider"
-        	android:authorities="com.stoyanr.feeder.content" />
+    package="com.stoyanr.feeder"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-        <activity android:name=".activity.ChannelsActivity" android:label="@string/app_name">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="Feeder" >
+        <provider
+            android:name=".content.MainContentProvider"
+            android:authorities="com.stoyanr.feeder.content" />
+
+        <activity
+            android:name=".activity.ChannelsActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter android:label="View Channels">
-            	<action android:name="android.intent.action.VIEW" />
-            	<action android:name="android.intent.action.PICK" />
-            	<action android:name="android.intent.action.EDIT" />
-            	<category android:name="android.intent.category.DEFAULT" />
-            	<data android:mimeType="vnd.android.cursor.dir/vnd.feeder.channel" />
-            </intent-filter>
-        </activity>
+            <intent-filter android:label="View Channels" >
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.PICK" />
+                <action android:name="android.intent.action.EDIT" />
 
-        <activity android:name=".activity.AddChannelActivity" android:label="@string/app_name">
-            <intent-filter android:label="New Channel">
-                <action android:name="android.intent.action.INSERT" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.dir/vnd.feeder.channel" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.AddChannelActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name" >
+            <intent-filter android:label="New Channel" >
+                <action android:name="android.intent.action.INSERT" />
 
-        <activity android:name=".activity.ItemsActivity" android:label="@string/app_name">
-        	<intent-filter android:label="View Channel Items">
-        		<action android:name="android.intent.action.VIEW" />
-        		<category android:name="android.intent.category.DEFAULT" />
-        		<data android:mimeType="vnd.android.cursor.dir/vnd.feeder.item" />
-        	</intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.dir/vnd.feeder.channel" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.ItemsActivity"
+            android:label="@string/app_name" >
+            <intent-filter android:label="View Channel Items" >
+                <action android:name="android.intent.action.VIEW" />
 
-        <activity android:name=".activity.ViewItemActivity" android:label="@string/app_name">
-        	<intent-filter android:label="View Item">
-        		<action android:name="android.intent.action.VIEW" />
-        		<category android:name="android.intent.category.DEFAULT" />
-        		<data android:mimeType="vnd.android.cursor.item/vnd.feeder.item" />
-        	</intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.dir/vnd.feeder.item" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.ViewItemActivity"
+            android:label="@string/app_name" >
+            <intent-filter android:label="View Item" >
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/vnd.feeder.item" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
         </activity>
-        
+
         <service android:name=".service.MainService" />
-        
     </application>
-</manifest> 
+
+</manifest>
