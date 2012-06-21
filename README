@@ -1,1 +1,18 @@
 Feeder is a simple Android RSS Feed Reader application.
+
+Features:
+* Subscribe and unsubscribe to RSS and Atom feeds.
+* View feeds and feed entries as picture mosaics rather than plain lists.
+* Refresh feeds with a button click and in the background.
+* Read feeds offline.
+* Navigate between feeds and feed entries conveniently.
+* View "featured" entries that contain one or more predefined keywords.
+* Clean old feed entries with a button click.
+
+Supported Android Version:
+* Android 2.2 or higher. 
+
+Programming Highlights
+* Uses the Android port of Rome (http://code.google.com/p/android-rome-feed-reader/), an open source Java tool for parsing, generating, and publishing RSS and Atom feeds.
+* Uses ORMLite (http://ormlite.com/) for simple annotation-based persistence of Java objects to SQL databases.
+* On Android 3.0 or higher, the app uses some of the advanced UI features available such as the action bar. On older versions it reverts to less advanced equivalents such as menus.
