@@ -2,7 +2,7 @@ Feeder is a fully functional yet simple Android RSS Feed Reader application. It 
 
 Feedback, comments, and contributions are more than welcome!
 
-Upon starting, I encountered one similar project, android-rss (http://code.google.com/p/android-rss/). However, this project is based on a rather old Anrdoid beta and is inactive since 2008, so I decided to write Feeder from scratch. I did learn a lot from reading its code and ended up borrowing also a few ideas from it.
+Upon starting, I encountered one similar project, android-rss (http://code.google.com/p/android-rss/). However, this project is based on a rather old Android beta and is inactive since 2008, so I decided to write Feeder from scratch. I did learn a lot from reading its code and ended up borrowing also a few ideas from it.
 
 Application Features:
 * Subscribe and unsubscribe to RSS and Atom feeds.
@@ -13,6 +13,11 @@ Application Features:
 * View "featured" entries that contain one or more predefined keywords.
 * Clean old feed entries with a button click.
 
+Screenshots:
+* https://github.com/stoyanr/Feeder/blob/master/screenshots/Channels.jpg
+* https://github.com/stoyanr/Feeder/blob/master/screenshots/Items.jpg
+* https://github.com/stoyanr/Feeder/blob/master/screenshots/ViewItem.jpg
+
 Supported Android Version:
 * Android 2.2 or higher. 
 
@@ -21,7 +26,7 @@ Programming Highlights:
 * Uses ORMLite (http://ormlite.com/) for simple annotation-based persistence of Java objects. ORMLite is one of the few available ORM implementations that fully support Android's SQLite database.
 * Feeds and their entries are exposed via a content provider (http://developer.android.com/guide/topics/providers/content-providers.html), so they can be accessed also from other applications. The provider implementation is based on a mini-framework which uses database functionality and metadata information provided by ORMLite and a few additional custom annotations to build content queries and manage database tables in a generic way.
 * All operations on data such as querying the content provider, performing database operations, and downloading feeds from the Internet are performed asynchronously in background threads, using mechanisms such as AsyncTask (http://developer.android.com/reference/android/os/AsyncTask.html), loaders (http://developer.android.com/guide/components/loaders.html), handlers (http://developer.android.com/reference/android/os/Handler.html), and a custom mechanism for managing multiple download threads.
-* Uses custom views for lists of feeds and their entires in order to display them as picture mosaics. These views are managed using data binding by custom adapters based on CursorAdapter. This is possible because the content provider queries return cursors which are very convenient for data binding.
+* Uses custom views for lists of feeds and their entries in order to display them as picture mosaics. These views are managed using data binding by custom adapters based on CursorAdapter. This is possible because the content provider queries return cursors which are very convenient for data binding.
 * There is a background service (http://developer.android.com/guide/components/services.html) for refreshing the feeds on a regular interval.
 * On Android 3.0 or higher, makes use of advanced UI features such as action bars (http://developer.android.com/guide/topics/ui/actionbar.html). On older versions falls back to less advanced equivalents such as menus. This is achieved mainly by using the Android support library v4 (http://developer.android.com/tools/extras/support-library.html). For features such as the "contextual action mode" which are not available in the support library this is achieved by switching the implementation dynamically based on the platform version.
 * There is a preferences dialog in which the user can enter a list of keywords for filtering "featured" entries.
@@ -33,7 +38,7 @@ Programming Highlights:
 
 Known Issues / TODOs:
 * Currently the minimum supported Android version is set to 2.2 because the Android port of Rome crashes on 2.1 or lower due to a bug in jdom. This should be easy to fix by packaging the fixed jdom version. 
-* Images in feed entires are not stored for offline reading, except for the first image in the entry descrption which is displayed in the mosaic. This means that the images are downloaded from the Internet each time the entry is opened for reading, and no images are shown when offline. This would be a rather straightforward enhancement of the current content provider and refresh mechanisms.
+* Images in feed entries are not stored for offline reading, except for the first image in the entry description which is displayed in the mosaic. This means that the images are downloaded from the Internet each time the entry is opened for reading, and no images are shown when offline. This would be a rather straightforward enhancement of the current content provider and refresh mechanisms.
 * Several application settings such as the auto-refresh interval, the age of items to be cleaned, etc. are hardcoded rather than exposed as user preferences.
 * When displaying feed entries, the font, link, and background colors are hardcoded in CSS.
 * Cleaned old items may appear once again after a refresh if they are still in the feed.
