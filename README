@@ -1,44 +1,6 @@
-Feeder is a fully functional yet simple Android RSS Feed Reader application. It was originally created in June 2012 for an internal "geeks" contest in the company I work for (SAP). The well-balanced scope allowed me to explore and learn many of the basic and advanced features of the platform, while still keeping it small. My goal was to create a simple app that showcased Android best programming practices in a few important areas, so that it would be useful as a collection of samples to me and other developers.
+Feeder is a fully functional yet simple Android RSS Feed Reader application. It showcases Android best programming practices in areas such as content providers, asynchronous processing, data binding, custom views and adapters, background services, and advanced UI features.
 
-Feedback, comments, and contributions are more than welcome!
+Feedback, comments, and contributions are welcome!
 
-Upon starting, I encountered one similar project, android-rss (http://code.google.com/p/android-rss/). However, this project is based on a rather old Android beta and is inactive since 2008, so I decided to write Feeder from scratch. I did learn a lot from reading its code and ended up borrowing also a few ideas from it.
+Read more in our Wiki (https://github.com/stoyanr/Feeder/wiki).
 
-Application Features:
-* Subscribe and unsubscribe to RSS and Atom feeds.
-* View feeds and feed entries as picture mosaics rather than plain lists.
-* Conveniently navigate between feeds and feed entries.
-* Refresh feeds with a button click and in the background.
-* Read feeds offline.
-* View "featured" entries that contain one or more predefined keywords.
-* Clean old feed entries with a button click.
-
-Screenshots:
-* https://github.com/stoyanr/Feeder/blob/master/screenshots/Channels.jpg
-* https://github.com/stoyanr/Feeder/blob/master/screenshots/Items.jpg
-* https://github.com/stoyanr/Feeder/blob/master/screenshots/ViewItem.jpg
-
-Supported Android Version:
-* Android 2.2 or higher. 
-
-Programming Highlights:
-* Uses the Android port of Rome (http://code.google.com/p/android-rome-feed-reader/) for parsing RSS and Atom feeds.
-* Uses ORMLite (http://ormlite.com/) for simple annotation-based persistence of Java objects. ORMLite is one of the few available ORM implementations that fully support Android's SQLite database.
-* Feeds and their entries are exposed via a content provider (http://developer.android.com/guide/topics/providers/content-providers.html), so they can be accessed also from other applications. The provider implementation is based on a mini-framework which uses database functionality and metadata information provided by ORMLite and a few additional custom annotations to build content queries and manage database tables in a generic way.
-* All operations on data such as querying the content provider, performing database operations, and downloading feeds from the Internet are performed asynchronously in background threads, using mechanisms such as AsyncTask (http://developer.android.com/reference/android/os/AsyncTask.html), loaders (http://developer.android.com/guide/components/loaders.html), handlers (http://developer.android.com/reference/android/os/Handler.html), and a custom mechanism for managing multiple download threads.
-* Uses custom views for lists of feeds and their entries in order to display them as picture mosaics. These views are managed using data binding by custom adapters based on CursorAdapter. This is possible because the content provider queries return cursors which are very convenient for data binding.
-* There is a background service (http://developer.android.com/guide/components/services.html) for refreshing the feeds on a regular interval.
-* On Android 3.0 or higher, makes use of advanced UI features such as action bars (http://developer.android.com/guide/topics/ui/actionbar.html). On older versions falls back to less advanced equivalents such as menus. This is achieved mainly by using the Android support library v4 (http://developer.android.com/tools/extras/support-library.html). For features such as the "contextual action mode" which are not available in the support library this is achieved by switching the implementation dynamically based on the platform version.
-* There is a preferences dialog in which the user can enter a list of keywords for filtering "featured" entries.
-* Activities are always invoked based on their declared intent filters, rather than directly.
-* Decoded bitmaps are managed in a simple bitmap cache (http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html) to avoid memory and performance issues.
-* All layouts, menus, and strings are externalized in resources.
-* There are unit tests for the content provider based on best practices for testing on Android (http://developer.android.com/tools/testing/testing_android.html)
-* The code is extremely "clean", well-structured, and easy to read. Formatting, naming, and comments are uniform and consistent, as well as exception handling and logging. There are no commented-out lines of code. A lot of attention has been put in the proper partitioning of the application into classes and packages and appropriate use of object-oriented and declarative techniques such as inheritance and annotations.
-
-Known Issues / TODOs:
-* Currently the minimum supported Android version is set to 2.2 because the Android port of Rome crashes on 2.1 or lower due to a bug in jdom. This should be easy to fix by packaging the fixed jdom version. 
-* Images in feed entries are not stored for offline reading, except for the first image in the entry description which is displayed in the mosaic. This means that the images are downloaded from the Internet each time the entry is opened for reading, and no images are shown when offline. This would be a rather straightforward enhancement of the current content provider and refresh mechanisms.
-* Several application settings such as the auto-refresh interval, the age of items to be cleaned, etc. are hardcoded rather than exposed as user preferences.
-* When displaying feed entries, the font, link, and background colors are hardcoded in CSS.
-* Cleaned old items may appear once again after a refresh if they are still in the feed.
